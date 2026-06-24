@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anesyt  — Манікюр у Дніпрі</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dusty-rose: #C9A5A0;
+      --blush: #E8D3CF;
+      --cream: #FAF6F2;
+      --warm-white: #FFFCF9;
+      --deep-rose: #9B6B65;
+      --mocha: #6B4C47;
+      --text-dark: #2C1F1D;
+      --text-mid: #6B5550;
+      --text-light: #A8918D;
+      --gold: #C4A882;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--warm-white);
+      color: var(--text-dark);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 5%;
+      background: rgba(255,252,249,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,165,160,0.2);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--mocha);
+      text-decoration: none;
+    }
+    .nav-logo span { font-style: italic; color: var(--deep-rose); }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--deep-rose); }
+    .nav-cta {
+      background: var(--deep-rose);
+      color: white !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 2px;
+      transition: background 0.3s !important;
+    }
+    .nav-cta:hover { background: var(--mocha) !important; color: white !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding-top: 5rem;
+    }
+    .hero-left {
+      padding: 6rem 5% 6rem 7%;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--dusty-rose);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 5.5vw, 5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--text-dark);
+      margin-bottom: 1.8rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--deep-rose);
+    }
+    .hero-desc {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-mid);
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--deep-rose);
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border: none;
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--mocha); }
+    .btn-outline {
+      border: 1px solid var(--dusty-rose);
+      color: var(--deep-rose);
+      padding: 0.9rem 2.2rem;
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    .btn-outline:hover {
+      background: var(--deep-rose);
+      color: white;
+    }
+
+    .hero-right {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .hero-image-grid {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 3px;
+    }
+    .hero-img {
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-img:nth-child(1) { background-color: #E8D3CF; }
+    .hero-img:nth-child(2) { background-color: #D4BAB5; }
+    .hero-img:nth-child(3) { background-color: #C9A5A0; }
+    .hero-img:nth-child(4) { background-color: #B8918A; }
+
+    /* Photo placeholders with nail art patterns */
+    .nail-photo {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nail-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+    }
+    .nail-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Overlay brand on hero images */
+    .hero-overlay {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      background: rgba(255,252,249,0.9);
+      backdrop-filter: blur(8px);
+      padding: 1.2rem 1.5rem;
+      border-left: 2px solid var(--dusty-rose);
+      z-index: 10;
+    }
+    .hero-overlay-stat {
+      font-size: 2rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--mocha);
+      font-weight: 300;
+    }
+    .hero-overlay-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 7rem 7%;
+      background: var(--cream);
+    }
+    .section-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      margin-bottom: 4rem;
+      gap: 2rem;
+    }
+    .section-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--dusty-rose);
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--text-dark);
+    }
+    .section-title em { font-style: italic; color: var(--deep-rose); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5px;
+    }
+    .service-card {
+      background: var(--warm-white);
+      padding: 2.5rem 2rem;
+      transition: all 0.3s;
+      cursor: default;
+    }
+    .service-card:hover {
+      background: var(--deep-rose);
+    }
+    .service-card:hover .service-name,
+    .service-card:hover .service-price,
+    .service-card:hover .service-desc,
+    .service-card:hover .service-duration {
+      color: rgba(255,255,255,0.9) !important;
+    }
+    .service-card:hover .service-divider {
+      background: rgba(255,255,255,0.3);
+    }
+    .service-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--mocha);
+      margin-bottom: 0.5rem;
+    }
+    .service-duration {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 1.2rem;
+    }
+    .service-divider {
+      height: 1px;
+      background: var(--blush);
+      margin-bottom: 1.2rem;
+    }
+    .service-desc {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--text-mid);
+      margin-bottom: 1.5rem;
+    }
+    .service-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--deep-rose);
+    }
+    .service-price span {
+      font-size: 0.8rem;
+      font-family: 'Jost', sans-serif;
+      color: var(--text-light);
+    }
+
+    /* GALLERY */
+    .gallery {
+      padding: 7rem 7%;
+      background: var(--warm-white);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 280px 280px;
+      gap: 4px;
+      margin-top: 3rem;
+    }
+    .gallery-item {
+      overflow: hidden;
+      background: var(--blush);
+      position: relative;
+    }
+    .gallery-item:first-child {
+      grid-row: span 2;
+      grid-column: span 1;
+    }
+    .gallery-item:nth-child(3) {
+      grid-column: span 2;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(107,76,71,0.7) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    /* Gallery color placeholders */
+    .gc1 { background: #E8CFC9; }
+    .gc2 { background: #D9BFB8; }
+    .gc3 { background: #CBADA5; }
+    .gc4 { background: #BD9B92; }
+    .gc5 { background: #C4A8A1; }
+    .gc6 { background: #D6C0BB; }
+
+    /* PROCESS */
+    .process {
+      padding: 7rem 7%;
+      background: var(--mocha);
+    }
+    .process .section-eyebrow { color: var(--blush); }
+    .process .section-title { color: var(--warm-white); }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    .process-step {
+      border-top: 1px solid rgba(232,211,207,0.3);
+      padding-top: 1.5rem;
+    }
+    .process-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(201,165,160,0.4);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .process-step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--blush);
+      margin-bottom: 0.8rem;
+    }
+    .process-step-desc {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(232,211,207,0.7);
+    }
+
+    /* BOOKING */
+    .booking {
+      padding: 7rem 7%;
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .booking-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .booking-info h3 em { font-style: italic; color: var(--deep-rose); }
+    .booking-info p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-mid);
+      margin-bottom: 2rem;
+    }
+    .booking-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+    }
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--blush);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--deep-rose);
+      fill: none;
+      stroke-width: 1.5;
+    }
+    .contact-item strong { color: var(--mocha); font-weight: 500; }
+
+    /* FORM */
+    .booking-form {
+      background: var(--warm-white);
+      padding: 2.5rem;
+      border: 1px solid rgba(201,165,160,0.25);
+    }
+    .form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--mocha);
+      margin-bottom: 0.4rem;
+    }
+    .form-subtitle {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+    }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+    }
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid rgba(201,165,160,0.35);
+      background: var(--cream);
+      color: var(--text-dark);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      outline: none;
+      border-radius: 0;
+      transition: border-color 0.3s;
+      appearance: none;
+    }
+    .form-control:focus { border-color: var(--deep-rose); }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    textarea.form-control {
+      resize: none;
+      min-height: 90px;
+    }
+    select.form-control {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5' stroke='%239B6B65' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+    .form-submit {
+      width: 100%;
+      background: var(--deep-rose);
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--mocha); }
+
+    /* SUCCESS MSG */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+    .success-msg .check {
+      width: 56px;
+      height: 56px;
+      background: var(--blush);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+    }
+    .success-msg .check svg {
+      width: 24px; height: 24px;
+      stroke: var(--deep-rose);
+      fill: none; stroke-width: 2;
+    }
+    .success-msg h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--mocha);
+      margin-bottom: 0.5rem;
+    }
+    .success-msg p { font-size: 0.9rem; color: var(--text-light); }
+
+    /* REVIEWS */
+    .reviews {
+      padding: 7rem 7%;
+      background: var(--warm-white);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+    .review-card {
+      padding: 2rem;
+      border: 1px solid rgba(201,165,160,0.2);
+      background: var(--cream);
+    }
+    .stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1rem;
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+    .review-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--text-mid);
+      margin-bottom: 1.5rem;
+    }
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .reviewer-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--blush);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--deep-rose);
+      font-weight: 500;
+    }
+    .reviewer-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--mocha);
+    }
+    .reviewer-date {
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+
+    /* RANDOM CTA */
+    .instagram {
+      padding: 5rem 7%;
+      background: var(--deep-rose);
+      text-align: center;
+    }
+    .instagram p {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.8rem;
+    }
+    .instagram h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+    .instagram a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      padding: 0.8rem 2rem;
+      border: 1px solid rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      transition: background 0.3s;
+    }
+    .instagram a:hover { background: rgba(255,255,255,0.25); }
+
+    /* FOOTER */
+    footer {
+      background: var(--text-dark);
+      color: rgba(255,252,249,0.6);
+      padding: 3rem 7%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 2rem;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--warm-white);
+      margin-bottom: 0.5rem;
+    }
+    .footer-logo span { font-style: italic; color: var(--dusty-rose); }
+    footer p { font-size: 0.8rem; }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .footer-links a {
+      text-decoration: none;
+      font-size: 0.78rem;
+      color: rgba(255,252,249,0.5);
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--dusty-rose); }
+
+    /* SCROLL ANIM */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Decorative lines */
+    .deco-line {
+      display: inline-block;
+      width: 40px;
+      height: 1px;
+      background: var(--dusty-rose);
+      margin-right: 1rem;
+      vertical-align: middle;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 5%; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { height: 60vw; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .booking { grid-template-columns: 1fr; gap: 3rem; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-item:first-child { grid-row: span 1; }
+      .gallery-item:nth-child(3) { grid-column: span 1; }
+      footer { grid-template-columns: 1fr; text-align: center; }
+      .footer-links { justify-content: center; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo"><span>Anesyt</span> Nails</a>
+  <ul class="nav-links">
+    <li><a href="#services">Послуги</a></li>
+    <li><a href="#gallery">Роботи</a></li>
+    <li><a href="#reviews">Відгуки</a></li>
+    <li><a href="#booking" class="nav-cta">Записатись</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span class="deco-line"></span>Майстер манікюру · Дніпро</div>
+    <h1 class="hero-title">
+      Нігті, що<br/>
+      <em>розповідають</em><br/>
+      вашу історію
+    </h1>
+    <p class="hero-desc">
+      Авторський манікюр із турботою про здоров'я ваших нігтів.
+      Стерильність, якісні матеріали та ідеальний результат — завжди.
+    </p>
+    <div class="hero-actions">
+      <a href="#booking" class="btn-primary">Записатись онлайн</a>
+      <a href="#gallery" class="btn-outline">Переглянути роботи</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-image-grid">
+      <div class="nail-photo gc1" style="background-image: url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80'); background-size: cover; background-position: center;"></div>
+      <div class="nail-photo gc2" style="background-image: url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&sat=-30&hue=340'); background-size: cover; background-position: center;"></div>
+      <div class="nail-photo gc3" style="background-image: url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&flip=h'); background-size: cover; background-position: center;"></div>
+      <div class="nail-photo gc4" style="background-image: url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&fit=crop&crop=right'); background-size: cover; background-position: center;"></div>
+    </div>
+    <div class="hero-overlay">
+      <div>
+        <div class="hero-overlay-stat">200+</div>
+        <div class="hero-overlay-label">задоволених клієнток</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header fade-up">
+    <div>
+      <div class="section-eyebrow"><span class="deco-line"></span>Послуги та ціни</div>
+      <h2 class="section-title">Що я <em>пропоную</em></h2>
+    </div>
+    <a href="#booking" class="btn-primary">Записатись</a>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-icon">🪻</div>
+      <div class="service-name">Манікюр класичний</div>
+      <div class="service-duration">45 хв</div>
+      <div class="service-divider"></div>
+      <div class="service-desc">Догляд за кутикулою, надання форми, нанесення лаку — ніжний результат для щоденного образу.</div>
+      <div class="service-price">від 350 <span>грн</span></div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">💅</div>
+      <div class="service-name">Гель-лак / Гібрид</div>
+      <div class="service-duration">60–75 хв</div>
+      <div class="service-divider"></div>
+      <div class="service-desc">Стійке покриття до 3–4 тижнів. Широка палітра кольорів, ідеальний глянець без сколів.</div>
+      <div class="service-price">від 550 <span>грн</span></div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">✨</div>
+      <div class="service-name">Нарощування нігтів</div>
+      <div class="service-duration">90–120 хв</div>
+      <div class="service-divider"></div>
+      <div class="service-desc">Нарощування на формах або типсах. Акрил, гель або полігель — підбираємо матеріал індивідуально.</div>
+      <div class="service-price">від 850 <span>грн</span></div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">🎨</div>
+      <div class="service-name">Дизайн та декор</div>
+      <div class="service-duration">від 15 хв</div>
+      <div class="service-divider"></div>
+      <div class="service-desc">Малюнки вручну, втирки, фольга, стрази, кракле. Авторський дизайн під ваш образ.</div>
+      <div class="service-price">від 50 <span>грн/ніготь</span></div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">🌸</div>
+      <div class="service-name">Педикюр</div>
+      <div class="service-duration">60–90 хв</div>
+      <div class="service-divider"></div>
+      <div class="service-desc">Апаратна або класична обробка стоп. Нанесення гель-лаку, масаж, зволоження шкіри.</div>
+      <div class="service-price">від 600 <span>грн</span></div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">💎</div>
+      <div class="service-name">Корекція та знімання</div>
+      <div class="service-duration">30–60 хв</div>
+      <div class="service-divider"></div>
+      <div class="service-desc">Акуратне знімання будь-якого покриття, корекція довжини та форми нарощених нігтів.</div>
+      <div class="service-price">від 200 <span>грн</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-header fade-up">
+    <div>
+      <div class="section-eyebrow"><span class="deco-line"></span>Мої роботи</div>
+      <h2 class="section-title">Кожна робота — <em>унікальна</em></h2>
+    </div>
+    <a href="random" target="_blank" class="btn-outline">random →</a>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item gc1">
+      <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80" alt="Манікюр з дизайном" loading="lazy" />
+      <div class="gallery-overlay"><span class="gallery-tag">Авторський дизайн</span></div>
+    </div>
+    <div class="gallery-item gc2">
+      <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&fm=webp&sat=20" alt="Гель-лак нюд" loading="lazy" />
+      <div class="gallery-overlay"><span class="gallery-tag">Нюд гель-лак</span></div>
+    </div>
+    <div class="gallery-item gc5">
+      <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80&fm=webp&bright=5" alt="Нарощування" loading="lazy" />
+      <div class="gallery-overlay"><span class="gallery-tag">Нарощування</span></div>
+    </div>
+    <div class="gallery-item gc3">
+      <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&fm=webp&hue=10" alt="Педикюр" loading="lazy" />
+      <div class="gallery-overlay"><span class="gallery-tag">Педикюр</span></div>
+    </div>
+    <div class="gallery-item gc4">
+      <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&fm=webp&sat=-10" alt="Французький манікюр" loading="lazy" />
+      <div class="gallery-overlay"><span class="gallery-tag">Французький манікюр</span></div>
+    </div>
+    <div class="gallery-item gc6">
+      <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&fm=webp&sat=10" alt="Дизайн зі стразами" loading="lazy" />
+      <div class="gallery-overlay"><span class="gallery-tag">Декор стразами</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="section-eyebrow fade-up"><span class="deco-line" style="background: var(--blush);"></span>Як проходить запис</div>
+  <h2 class="section-title fade-up" style="color: var(--warm-white);">Чотири прості кроки<br/>до <em style="color: var(--dusty-rose);">ідеальних</em> нігтів</h2>
+  <div class="process-steps">
+    <div class="process-step fade-up">
+      <div class="process-num">01</div>
+      <div class="process-step-title">Залишаєте заявку</div>
+      <div class="process-step-desc">Заповнюєте форму на сайті або пишете в random — вказуєте бажаний час та послугу.</div>
+    </div>
+    <div class="process-step fade-up">
+      <div class="process-num">02</div>
+      <div class="process-step-title">Підтвердження</div>
+      <div class="process-step-desc">Я підтверджую запис протягом 2 годин та надсилаю адресу та деталі.</div>
+    </div>
+    <div class="process-step fade-up">
+      <div class="process-num">03</div>
+      <div class="process-step-title">Консультація</div>
+      <div class="process-step-desc">Обговорюємо бажаний дизайн, форму та довжину. Підбираємо відтінок під ваш образ.</div>
+    </div>
+    <div class="process-step fade-up">
+      <div class="process-num">04</div>
+      <div class="process-step-title">Ідеальний результат</div>
+      <div class="process-step-desc">Насолоджуєтесь красою та ідеальною якістю. Виходите з посмішкою 😊</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-info fade-up">
+    <div class="section-eyebrow"><span class="deco-line"></span>Запис онлайн</div>
+    <h3>Готові до нових<br/><em>улюблених нігтів?</em></h3>
+    <p>Залишіть заявку і я зв'яжусь з вами протягом кількох годин для підтвердження часу. З радістю відповім на всі питання!</p>
+    <div class="booking-contacts">
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <strong>random</strong><br/>
+          <a href="random" target="_blank" style="color: var(--deep-rose); text-decoration: none;">random</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <strong>Місто</strong><br/>Дніпро (адреса надається після запису)
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <strong>Графік роботи</strong><br/>Пн–Сб: 9:00–19:00
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booking-form fade-up">
+    <div id="form-wrap">
+      <div class="form-title">Записатись на манікюр</div>
+      <div class="form-subtitle">Заповніть форму і я вам напишу ✦</div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Ваше ім'я *</label>
+          <input class="form-control" type="text" placeholder="Ольга" id="f-name" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Телефон *</label>
+          <input class="form-control" type="tel" placeholder="+38 0XX XXX XX XX" id="f-phone" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Послуга *</label>
+        <select class="form-control" id="f-service">
+          <option value="">— Оберіть послугу —</option>
+          <option>Манікюр класичний</option>
+          <option>Гель-лак / Гібрид</option>
+          <option>Нарощування нігтів</option>
+          <option>Педикюр</option>
+          <option>Манікюр + Педикюр</option>
+          <option>Дизайн та декор</option>
+          <option>Корекція / Знімання</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Бажана дата *</label>
+          <input class="form-control" type="date" id="f-date" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Бажаний час *</label>
+          <select class="form-control" id="f-time">
+            <option value="">— Час —</option>
+            <option>09:00</option>
+            <option>10:00</option>
+            <option>11:00</option>
+            <option>12:00</option>
+            <option>13:00</option>
+            <option>14:00</option>
+            <option>15:00</option>
+            <option>16:00</option>
+            <option>17:00</option>
+            <option>18:00</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Ваші побажання</label>
+        <textarea class="form-control" placeholder="Опишіть бажаний дизайн або задайте питання..." id="f-notes"></textarea>
+      </div>
+
+      <button class="form-submit" onclick="submitForm()">Надіслати заявку →</button>
+      <div style="margin-top: 1rem; font-size: 0.75rem; color: var(--text-light); text-align: center;">
+        Або напишіть мені в <a href="random" target="_blank" style="color: var(--deep-rose);">random</a>
+      </div>
+    </div>
+    <div class="success-msg" id="success-msg">
+      <div class="check">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h4>Заявку отримано!</h4>
+      <p>Дякую, що обрали мене 💕<br/>Я зв'яжусь з вами найближчим часом для підтвердження.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-header fade-up">
+    <div>
+      <div class="section-eyebrow"><span class="deco-line"></span>Відгуки клієнток</div>
+      <h2 class="section-title">Вони вже <em>закохані</em></h2>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card fade-up">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">«Чудовий майстер! Манікюр тримається вже 4 тижні — жодного сколу. Дизайн вийшов навіть кращий, ніж я уявляла. Однозначно повертатимусь!»</div>
+      <div class="reviewer">
+        <div class="reviewer-avatar">АМ</div>
+        <div>
+          <div class="reviewer-name">Анастасія М.</div>
+          <div class="reviewer-date">Постійна клієнтка</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card fade-up">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">«Нарощування зробила вперше — і в захваті! Дуже акуратно, нігті виглядають природно. Майстер уважна до деталей, стерильність на висоті.»</div>
+      <div class="reviewer">
+        <div class="reviewer-avatar">ВК</div>
+        <div>
+          <div class="reviewer-name">Вікторія К.</div>
+          <div class="reviewer-date">Постійна клієнтка</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card fade-up">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">«Прийшла по рекомендації подруги і тепер сама всіх рекомендую! Педикюр + манікюр — просто казка. Атмосфера затишна, а результат ідеальний.»</div>
+      <div class="reviewer">
+        <div class="reviewer-avatar">НП</div>
+        <div>
+          <div class="reviewer-name">Наталія П.</div>
+          <div class="reviewer-date">Постійна клієнтка</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RANDOM CTA -->
+<section class="instagram">
+  <p>Більше натхнення</p>
+  <h3>Стежте за новими роботами<br/>в random</h3>
+  <a href="random" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    random
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo"><span>An</span> Nails</div>
+    <p>© 2025 · Майстер манікюру · Дніпро · Усі права захищені</p>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#services">Послуги</a></li>
+    <li><a href="#gallery">Роботи</a></li>
+    <li><a href="#booking">Записатись</a></li>
+    <li><a href="random" target="_blank">random</a></li>
+  </ul>
+</footer>
+
+<script>
+  // Set min date for date input
+  const dateInput = document.getElementById('f-date');
+  if (dateInput) {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth()+1).padStart(2,'0');
+    const dd = String(today.getDate()).padStart(2,'0');
+    dateInput.min = `${yyyy}-${mm}-${dd}`;
+  }
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Form submit
+  function submitForm() {
+    const name = document.getElementById('f-name').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    const service = document.getElementById('f-service').value;
+    const date = document.getElementById('f-date').value;
+    const time = document.getElementById('f-time').value;
+
+    if (!name || !phone || !service || !date || !time) {
+      alert('Будь ласка, заповніть усі обов\'язкові поля (*)');
+      return;
+    }
+
+    document.getElementById('form-wrap').style.display = 'none';
+    const successEl = document.getElementById('success-msg');
+    successEl.style.display = 'block';
+    successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+      nav.style.boxShadow = '0 2px 20px rgba(44,31,29,0.08)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+</body>
+</html>
